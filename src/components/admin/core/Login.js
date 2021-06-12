@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './Layout';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 
 // 控制表单的样式
 const layout = {
