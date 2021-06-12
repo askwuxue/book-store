@@ -1,15 +1,17 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './core/Home';
+import Register from './core/Register';
+import Login from './core/Login';
 import Shop from './core/Shop';
 
 export default function Routes() {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" component={Home} exact></Route>
-                <Route path="/shop" component={Shop} exact></Route>
-            </Switch>
-        </BrowserRouter>
+        <Switch>
+            <Route path="/" component={Home} exact></Route>
+            <Route path="/shop" component={Shop} exact></Route>
+            <Route path="/register" component={Register}></Route>
+            <Route path="/login" component={Login}></Route>
+        </Switch>
     )
 }
