@@ -1,9 +1,9 @@
 import { API } from './config';
+import Routes from './components/admin/Routes';
+
 function App() {
   return (
-    <div className="App">
-      <p>this is p</p>
-    </div>
+    <Routes></Routes>
   );
 }
 console.log(API);
