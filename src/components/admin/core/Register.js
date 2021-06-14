@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import Layout from './Layout'
 import { Form, Input, Button, Checkbox } from 'antd';
-import { register } from '../../../store/actions/register';
+// import { register } from '../../../store/actions/register';
 
 // 控制表单的样式
 const layout = {
