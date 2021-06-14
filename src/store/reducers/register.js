@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { register, registerSuccess, registerFailed } from '../actions/register';
+// import { register, registerSuccess, registerFailed } from '../actions/register';
 
 const initState = {
     loading: false,
@@ -8,16 +8,25 @@ const initState = {
     message: ''
 }
 
+// 创建reducer saga的特殊匹配方式[action name]
+// TODO 如何将action的type进行替换
 export const registerReducer = handleActions({
-    [register]: (state, action) => ({
-        ...state
+    'REGISTER': (state, action) => ({
+        loading: false,
+        loaded: false,
+        success: false,
+        message: ''
     }),
-    [registerSuccess]: (state, action) => ({
-        ...state
+    'REGISTERSUCCESS': (state, action) => ({
+        loading: false,
+        loaded: true,
+        success: true,
+        message: ''
     }),
-    [registerFailed]: (state, action) => ({
-        ...state
+    'REGISTERFAILED': (state, action) => ({
+        loading: false,
+        loaded: true,
+        success: false,
+        message: ''
     })
 }, initState)
-
-console.log(registerReducer);
