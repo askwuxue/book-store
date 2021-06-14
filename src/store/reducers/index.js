@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import testReducer from './test';
 import { connectRouter } from 'connected-react-router'
+import { registerReducer } from "./register";
 
 
 // 创建一个reducer
@@ -12,7 +13,8 @@ import { connectRouter } from 'connected-react-router'
 
 const createRootReducer = (history) => combineReducers({
     router: connectRouter(history),
-    test: testReducer
+    test: testReducer,
+    register: registerReducer
 })
 
 export default createRootReducer;
