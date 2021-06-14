@@ -4,19 +4,23 @@ import { createBrowserHistory } from "history";
 import createRootReducer from "./reducers";
 import { applyMiddleware, compose } from "redux";
 import { routerMiddleware } from "connected-react-router";
+import createSagaMiddleware from "@redux-saga/core";
+import rootSaga from "./sages/rootSage";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
+const sagaMiddleWare = createSagaMiddleware();
 export const history = createBrowserHistory();
 
 export default function configureStore(preloadedState) {
     const store = createStore(
         createRootReducer(history),
         preloadedState,
-        compose(
-            applyMiddleware(
-                routerMiddleware(history)
-            )
+        // redux-devtool的使用
+        composeWithDevTools(
+            applyMiddleware(routerMiddleware(history), sagaMiddleWare)
         )
     )
+    sagaMiddleWare.run(rootSaga)
     return store;
 }
 
