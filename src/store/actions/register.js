@@ -10,3 +10,4 @@ import { createActions } from 'redux-actions';
 export const register = createActions('REGISTER');
 export const registerSuccess = createActions('REGISTERSUCCESS');
 export const registerFailed = createActions('REGISTERFAILED');
+export const registerReset = createActions('REGISTERRESET');

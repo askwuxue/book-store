@@ -28,5 +28,11 @@ export const registerReducer = handleActions({
         loaded: true,
         success: false,
         message: action.message
+    }),
+    'REGISTERRESET': (state, action) => ({
+        loading: false,
+        loaded: false,
+        success: false,
+        message: ''
     })
 }, initState)

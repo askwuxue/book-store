@@ -106,6 +106,14 @@ export default function Register() {
         }
     }, [loaded, success, form])
 
+    // 离开当前页面，重置state状态。为什么不在上面的useEffect函数中清除state。因为依赖项不同，总是会被调用，不止在离开当前页面时被调用
+    useEffect(() => {
+        return () => {
+            console.log('leave2');
+            dispatch({ type: 'REGISTERRESET' })
+        }
+    }, [dispatch])
+
     return (
         <Layout title="注册" subTitle="">
             {/* loading */}
