@@ -12,7 +12,7 @@ const initState = {
 // TODO 如何将action的type进行替换
 export const registerReducer = handleActions({
     'REGISTER': (state, action) => ({
-        loading: false,
+        loading: true,
         loaded: false,
         success: false,
         message: ''
@@ -27,6 +27,6 @@ export const registerReducer = handleActions({
         loading: false,
         loaded: true,
         success: false,
-        message: ''
+        message: action.message
     })
 }, initState)
