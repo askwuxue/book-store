@@ -7,7 +7,7 @@ function* handleRegister(action) {
         yield axios.post(`http://localhost/api/signup`, action.payload)
         yield put({ type: 'REGISTERSUCCESS' })
     } catch (e) {
-        yield put({ type: 'REGISTERFAILED' })
+        yield put({ type: 'REGISTERFAILED', message: e.response.data.error })
     }
 }
 
