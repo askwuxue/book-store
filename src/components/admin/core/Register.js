@@ -1,7 +1,8 @@
-import React from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Layout from './Layout'
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, Spin, Result } from 'antd';
+import { Link } from 'react-router-dom';
 // import { register } from '../../../store/actions/register';
 
 // 控制表单的样式
@@ -23,12 +24,58 @@ const tailLayout = {
 export default function Register() {
     const dispatch = useDispatch();
     const handleOnFish = value => {
-        // dispatch(register.register(value));
         dispatch({ type: 'REGISTER', payload: value });
     }
-    return (
-        <Layout title="注册" subTitle="">
-            <Form {...layout} onFinish={handleOnFish}>
+
+    // 结构register状态
+    const { loading, loaded, success, message } = useSelector(state => state.register);
+
+    // 加载中
+    const showLoading = () => {
+        if (loading) {
+            return (
+                <Spin />
+            )
+        }
+    }
+
+    // 注册成功
+    const showSuccess = () => {
+        if (loaded && success) {
+            return (
+                <Result
+                    status="success"
+                    title="登录成功!"
+                    extra={[
+                        <Button type="primary" key="console">
+                            <Link to="/login">登录</Link>
+                        </Button>,
+                    ]}
+                />
+            )
+        }
+    }
+
+    // 注册失败
+    const showFailed = () => {
+        if (loaded && !success) {
+            return (
+                <Result
+                    status="error"
+                    title="注册失败"
+                    subTitle={message}
+                    extra={[
+                    ]}
+                >
+                </Result>
+            )
+        }
+    }
+
+    // 注册表单
+    const showForm = () => {
+        return (
+            <Form {...layout} onFinish={handleOnFish} form={form}>
                 <Form.Item label="用户名" name="name">
                     <Input></Input>
                 </Form.Item>
@@ -47,6 +94,28 @@ export default function Register() {
                     </Button>
                 </Form.Item>
             </Form>
+        )
+    }
+
+    // 获得表单实例
+    const [form] = Form.useForm();
+    useEffect(() => {
+        // 注册成功，重置表单
+        if (loaded && success) {
+            form.resetFields();
+        }
+    }, [loaded, success, form])
+
+    return (
+        <Layout title="注册" subTitle="">
+            {/* loading */}
+            {showLoading()}
+            {/* 注册成功 */}
+            {showSuccess()}
+            {/* 注册失败 */}
+            {showFailed()}
+            {/* 注册表单 */}
+            {showForm()}
         </Layout>
     )
 }
