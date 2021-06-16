@@ -6,7 +6,7 @@ import { createActions } from 'redux-actions';
 //     REGISTERFAILED: (value) => ({ ...value })
 // })
 
-// 创建action 参数为type
+// 创建action 参数为type值
 export const register = createActions('REGISTER');
 export const registerSuccess = createActions('REGISTERSUCCESS');
 export const registerFailed = createActions('REGISTERFAILED');

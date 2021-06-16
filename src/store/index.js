@@ -9,9 +9,11 @@ import rootSaga from "./sages/rootSage";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const sagaMiddleWare = createSagaMiddleware();
+// 创建路由对象
 export const history = createBrowserHistory();
 
 export default function configureStore(preloadedState) {
+    // 创建store
     const store = createStore(
         createRootReducer(history),
         preloadedState,
