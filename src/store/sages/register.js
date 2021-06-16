@@ -13,5 +13,6 @@ function* handleRegister(action) {
 }
 
 export default function* registerSaga() {
+    // 监听type为REGISTER的action然后同步执行handleRegister
     yield takeEvery('REGISTER', handleRegister)
 }
