@@ -9,6 +9,7 @@ import AdminDashBoard from './AdminDashBoard';
 import PrivateUser from './PrivateUser';
 import PrivateAdmin from './PrivateAdmin';
 import CreateCategory from './CreateCategory';
+import AddProduct from './AddProduct';
 
 export default function Routes() {
     return (
@@ -20,7 +21,10 @@ export default function Routes() {
             {/* TODO 处理受保护的地址以及组件的显示 */}
             <PrivateUser path="/user/dashboard" component={UserDashBoard}></PrivateUser>
             <PrivateAdmin path="/admin/dashboard" component={AdminDashBoard}></PrivateAdmin>
+            {/* 添加分类 */}
             <PrivateAdmin path="/create/category" component={CreateCategory}></PrivateAdmin>
+            {/* 添加商品 */}
+            <PrivateAdmin path="/create/product" component={AddProduct}></PrivateAdmin>
             {/* <Route path="/user/dashboard" component={UserDashBoard}></Route> */}
             {/* <Route path="/admin/dashboard" component={AdminDashBoard}></Route> */}
         </Switch>

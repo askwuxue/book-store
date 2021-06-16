@@ -17,7 +17,7 @@ export default function AdminDashBoard() {
                 </Menu.Item>
                 <Menu.Item>
                     <UserAddOutlined />
-                    <Link>添加商品</Link>
+                    <Link to="/create/product">添加商品</Link>
                 </Menu.Item>
                 <Menu.Item>
                     <OrderedListOutlined />
