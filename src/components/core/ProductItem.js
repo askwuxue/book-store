@@ -10,7 +10,7 @@ export default function ProductItem() {
                 style={{ width: 240 }}
                 cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                 actions={[
-                    <Button type="link"><Link>查看详情</Link></Button>,
+                    <Button type="link"><Link to="/">查看详情</Link></Button>,
                     <Button type="link">加入购物车</Button>
                 ]}
             >
