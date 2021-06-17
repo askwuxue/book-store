@@ -6,7 +6,7 @@ import ProductItem from './ProductItem'
 import LatestProduct from './showProducts/LatestProduct';
 import MostPopular from './showProducts/MostPopular';
 import { Divider } from 'antd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProduct } from '../../store/actions/products';
 
