@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { connectRouter } from 'connected-react-router'
 import { registerReducer } from "./register";
+import { productReducer } from './product'
 
 
 // 创建一个reducer
@@ -13,7 +14,8 @@ import { registerReducer } from "./register";
 const createRootReducer = (history) => combineReducers({
     //connectRouter是一个函数，返回一个函数，该函数作为redux仓库中路由数据的reducer，进行更新仓库操作
     router: connectRouter(history),
-    register: registerReducer
+    register: registerReducer,
+    product: productReducer
 })
 
 export default createRootReducer;
