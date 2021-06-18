@@ -3,7 +3,8 @@ import { Row, Col, Card, Typography, Button } from 'antd';
 import { Link } from 'react-router-dom';
 const { Title, Paragraph } = Typography;
 
-export default function ProductItem() {
+export default function ProductItem(props) {
+    let { name, description, price, quantity, category, createdAt } = props;
     return (
         <>
             <Card
@@ -14,15 +15,15 @@ export default function ProductItem() {
                     <Button type="link">加入购物车</Button>
                 ]}
             >
-                <Title level={5}>GUCCI</Title>
-                <Paragraph ellipsis={{ rows: 2 }}>古驰是意大利的奢侈时装品牌，由古驰奥·古驰在1921年于佛罗伦斯创办。古驰的产品包括时装、皮具、皮鞋、手表、领带、丝巾、香水、家居用品及宠物用品等</Paragraph>
+                <Title level={5}>{name}</Title>
+                <Paragraph ellipsis={{ rows: 2 }}>{description}</Paragraph>
                 <Row>
-                    <Col span={12}>价格:</Col>
-                    <Col span={12}>销量:</Col>
+                    <Col span={12}>价格:{price}</Col>
+                    <Col span={12}>销量:{quantity}</Col>
                 </Row>
                 <Row>
-                    <Col span={12}>所属分类:</Col>
-                    <Col span={12}>上架时间:</Col>
+                    <Col span={12}>所属分类:{ }</Col>
+                    <Col span={12}>上架时间:{createdAt}</Col>
                 </Row>
             </Card>
         </>
