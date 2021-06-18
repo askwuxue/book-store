@@ -5,11 +5,7 @@ import { useSelector } from 'react-redux';
 const { Title } = Typography;
 
 export default function LatestProduct() {
-    // const product = useSelector(state => state.product)
-    // const { sold, createdAt } = useSelector(state => state.product)
     const { sold } = useSelector(state => state.product)
-    // console.log('createdAt: ', createdAt);
-    // console.log('sold: ', sold);
     return (
         <>
             <Divider />
@@ -18,7 +14,7 @@ export default function LatestProduct() {
                 {
                     sold.map(item => (
                         <Col span={6} key={item._id}>
-                            <ProductItem></ProductItem>
+                            <ProductItem {...item}></ProductItem>
                         </Col>
                     ))
                 }
