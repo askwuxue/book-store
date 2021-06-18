@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const { Title, Paragraph } = Typography;
 
 export default function ProductItem(props) {
-    let { name, description, price, quantity, category, createdAt } = props;
+    let { name, description, price, quantity, createdAt } = props;
     return (
         <>
             <Card
