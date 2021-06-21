@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Layout from '../core/Layout'
 import { Form, Upload, Button, Input, Select, message } from 'antd'
 import { UploadOutlined } from '@ant-design/icons';
@@ -6,6 +6,7 @@ import axios from 'axios';
 import { API } from '../../config';
 import isLogin from '../../utils/auth';
 import { useHistory } from 'react-router-dom';
+import useGetCategories from '../../utils/useGetCategories';
 
 const { Option } = Select;
 
@@ -14,23 +15,13 @@ export default function AddProduct() {
     // 图片信息
     const [file, setFile] = useState();
 
-    // 分类信息
-    const [categories, setCategories] = useState([]);
+    const categories = useGetCategories();
 
     // 创建form实例
     const [form] = Form.useForm();
 
     // 使用useHistory进行重定向
     const history = useHistory();
-
-    // 获取分类数据，展示分类
-    useEffect(() => {
-        const getCategories = async () => {
-            let { data: categories } = await axios.get(`${API}/categories`);
-            setCategories(categories);
-        };
-        getCategories();
-    }, [])
 
     // 文件上传之前回调，处理默认行为，保存file到state中
     const beforeUpload = (file) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from './Layout'
 import SearchBar from './SearchBar';
-import ProductItem from './ProductItem'
+// import ProductItem from './ProductItem'
 import LatestProduct from './showProducts/LatestProduct';
 import MostPopular from './showProducts/MostPopular';
 import { Divider } from 'antd';
@@ -23,7 +23,7 @@ export default function Home() {
             <SearchBar></SearchBar>
             <Divider />
             {/* TODO如何单独渲染 */}
-            <ProductItem></ProductItem>
+            {/* <ProductItem></ProductItem> */}
             <LatestProduct></LatestProduct>
             <MostPopular></MostPopular>
         </Layout >
