@@ -5,7 +5,7 @@ import { API } from '../../../src/config';
 const { Title, Paragraph } = Typography;
 
 export default function ProductItem(props) {
-    let { name, description, price, quantity, createdAt, _id } = props;
+    let { category: { name: categoryName }, name, description, price, quantity, createdAt, _id } = props;
     return (
         <>
             <Card
@@ -23,7 +23,7 @@ export default function ProductItem(props) {
                     <Col span={12}>销量:{quantity}</Col>
                 </Row>
                 <Row>
-                    <Col span={12}>所属分类:{ }</Col>
+                    <Col span={12}>所属分类:{categoryName}</Col>
                     <Col span={12}>上架时间:{createdAt}</Col>
                 </Row>
             </Card>
