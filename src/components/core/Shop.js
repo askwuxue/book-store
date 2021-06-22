@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from './Layout';
-import { Row, Col, Card, Typography, Button } from 'antd';
+import { Row, Col } from 'antd';
 import FilterByCategory from './filterShop/FilterByCategory';
 
 export default function Shop() {
