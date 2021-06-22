@@ -1,12 +1,17 @@
 import React from 'react'
 import Layout from './Layout';
-// import { useSelector } from 'react-redux';
+import { Row, Col, Card, Typography, Button } from 'antd';
+import FilterByCategory from './filterShop/FilterByCategory';
 
 export default function Shop() {
-    // const state = useSelector(state => state);
     return (
         <Layout title="书城列表" subTitle="挑选一本好书">
-            {/* Shop {JSON.stringify(state)} */}
+            <Row>
+                <Col span={4}>
+                    <FilterByCategory></FilterByCategory>
+                </Col>
+                <Col span={4}>right</Col>
+            </Row>
         </Layout>
     )
 }
