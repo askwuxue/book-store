@@ -4,7 +4,6 @@ import SearchBar from './SearchBar';
 // import ProductItem from './ProductItem'
 import LatestProduct from './showProducts/LatestProduct';
 import MostPopular from './showProducts/MostPopular';
-import { Divider } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getProduct } from '../../store/actions/products';
@@ -21,7 +20,6 @@ export default function Home() {
     return (
         <Layout title="精华书城" subTitle="好书尽在精华书城">
             <SearchBar></SearchBar>
-            <Divider />
             {/* TODO如何单独渲染 */}
             {/* <ProductItem></ProductItem> */}
             <LatestProduct></LatestProduct>
