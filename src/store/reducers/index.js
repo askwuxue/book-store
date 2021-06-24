@@ -3,6 +3,7 @@ import { connectRouter } from 'connected-react-router'
 import { registerReducer } from "./register";
 import { productReducer } from './product'
 import { searchReducer } from "./search";
+import { filterReducer } from "./filter";
 
 
 // 创建一个reducer
@@ -17,7 +18,8 @@ const createRootReducer = (history) => combineReducers({
     router: connectRouter(history),
     register: registerReducer,
     product: productReducer,
-    search: searchReducer
+    search: searchReducer,
+    filter: filterReducer
 })
 
 export default createRootReducer;
