@@ -3,8 +3,9 @@ import registerSaga from './register';
 import productsSage from './products'
 import searchSaga from './search';
 import filterSaga from './filter';
+import { productSaga } from './product';
 
 // 将saga进行合并
 export default function* rootSaga() {
-    yield all([registerSaga(), productsSage(), searchSaga(), filterSaga()])
+    yield all([registerSaga(), productsSage(), searchSaga(), filterSaga(), productSaga()])
 }

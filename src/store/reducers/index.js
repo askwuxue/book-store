@@ -4,6 +4,7 @@ import { registerReducer } from "./register";
 import { productsReducer } from './products'
 import { searchReducer } from "./search";
 import { filterReducer } from "./filter";
+import { productReducer } from "./product";
 
 
 // 创建一个reducer
@@ -19,7 +20,8 @@ const createRootReducer = (history) => combineReducers({
     register: registerReducer,
     products: productsReducer,
     search: searchReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    product: productReducer
 })
 
 export default createRootReducer;
