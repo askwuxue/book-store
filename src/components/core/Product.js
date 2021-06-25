@@ -11,14 +11,19 @@ export default function Product() {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const product = useSelector(state => state.product)
+
     useEffect(() => {
         dispatch(getProduct({ productId }))
-    }, [])
+    }, [productId, dispatch])
     return (
         <Layout title="商品详情">
             <Row>
                 <Col span="18">
-                    <ProductItem product={product} showView={false} showCar={true}></ProductItem>
+                    {
+                        // 数量满足情况下，渲染组件，防止组件的错误
+                        Object.keys(product).length > 0 &&
+                        <ProductItem product={product} showView={false} showCar={true}></ProductItem>
+                    }
                     {/* {JSON.stringify(product)} */}
                 </Col>
                 <Col span="6">right</Col>
