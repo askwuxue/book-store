@@ -46,7 +46,7 @@ export default function Shop() {
                         {
                             data.map(item =>
                                 <Col span="6" key={item._id}>
-                                    <ProductItem {...item} />
+                                    <ProductItem product={item} />
                                 </Col>
                             )
                         }

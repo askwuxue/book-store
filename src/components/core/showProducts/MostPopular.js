@@ -15,7 +15,7 @@ export default function MostPopular(props) {
                 {
                     createdAt.map(item => (
                         <Col span={6} key={item._id}>
-                            <ProductItem {...item}></ProductItem>
+                            <ProductItem product={item}></ProductItem>
                         </Col>
                     ))
                 }
