@@ -4,17 +4,24 @@ import { Link } from 'react-router-dom';
 import { API } from '../../../src/config';
 const { Title, Paragraph } = Typography;
 
-export default function ProductItem(props) {
-    let { category: { name: categoryName }, name, description, price, quantity, createdAt, _id } = props;
+export default function ProductItem({ product, showView = true, showCar = true }) {
+    let { category: { name: categoryName }, name, description, price, quantity, createdAt, _id } = product;
+    const actionsArray = [];
+    // Card 的actions接受一个数组，展示底部的显示组件
+    // 查看详情
+    if (showView) {
+        actionsArray.push(<Button type="link"><Link to={`/product/${_id}`}>查看详情</Link></Button>)
+    }
+    // 加入购物车
+    if (showCar) {
+        actionsArray.push(<Button type="link">加入购物车</Button>)
+    }
     return (
         <>
             <Card
                 style={{ width: 240 }}
                 cover={<img alt="example" src={`${API}/product/photo/${_id}`} />}
-                actions={[
-                    <Button type="link"><Link to="/">查看详情</Link></Button>,
-                    <Button type="link">加入购物车</Button>
-                ]}
+                actions={actionsArray}
             >
                 <Title level={5}>{name}</Title>
                 <Paragraph ellipsis={{ rows: 2 }}>{description}</Paragraph>
