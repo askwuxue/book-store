@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const { Title } = Typography;
 
 export default function MostPopular(props) {
-    const { createdAt } = useSelector(state => state.product);
+    const { createdAt } = useSelector(state => state.products);
     return (
         <>
             <Divider />

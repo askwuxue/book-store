@@ -1,6 +1,6 @@
 import { takeEvery, put } from "@redux-saga/core/effects";
 import axios from "axios";
-import { getProduct, getProductSuccess } from "../actions/products";
+import { getProducts, getProductsSuccess } from "../actions/products";
 import { API } from '../../config';
 
 // 触发getProduct action时接收的action参数
@@ -10,13 +10,13 @@ function* handleGetProduct(action) {
         params: action.payload
     });
     // 触发getProductSuccess actions并且传递参数action在reducers被接收
-    yield put(getProductSuccess({
+    yield put(getProductsSuccess({
         sortBy: action.payload.sortBy,
-        product: response.data
+        products: response.data
     }));
 }
 
-export default function* productSage() {
+export default function* productsSage() {
     // 触发action时执行函数handleGetProduct
-    yield takeEvery(getProduct, handleGetProduct)
+    yield takeEvery(getProducts, handleGetProduct)
 }

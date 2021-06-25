@@ -6,15 +6,15 @@ import LatestProduct from './showProducts/LatestProduct';
 import MostPopular from './showProducts/MostPopular';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getProduct } from '../../store/actions/products';
+import { getProducts } from '../../store/actions/products';
 
 export default function Home() {
     const dispatch = useDispatch();
 
     useEffect(() => {
         // TODO 根据排序规则，获得不同的数据集合
-        dispatch(getProduct({ sortBy: 'sold', order: 'asc', limit: 5 }));
-        dispatch(getProduct({ sortBy: 'createdAt', order: 'asc', limit: 1 }));
+        dispatch(getProducts({ sortBy: 'sold', order: 'asc', limit: 5 }));
+        dispatch(getProducts({ sortBy: 'createdAt', order: 'asc', limit: 1 }));
     }, [dispatch])
 
     return (

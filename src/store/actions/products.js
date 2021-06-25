@@ -1,5 +1,5 @@
 import { createAction } from "redux-actions";
 
-export const getProduct = createAction('getProduct');
+export const getProducts = createAction('getProducts');
 
-export const getProductSuccess = createAction('getProductSuccess');
+export const getProductsSuccess = createAction('getProductsSuccess');

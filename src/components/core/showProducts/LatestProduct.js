@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const { Title } = Typography;
 
 export default function LatestProduct() {
-    const { sold } = useSelector(state => state.product)
+    const { sold } = useSelector(state => state.products)
     return (
         <>
             <Divider />
