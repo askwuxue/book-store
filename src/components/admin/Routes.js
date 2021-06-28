@@ -11,6 +11,7 @@ import PrivateAdmin from './PrivateAdmin';
 import CreateCategory from './CreateCategory';
 import AddProduct from './AddProduct';
 import Product from '../core/Product';
+import Cart from '../core/Cart';
 
 export default function Routes() {
     return (
@@ -28,6 +29,8 @@ export default function Routes() {
             <PrivateAdmin path="/create/product" component={AddProduct}></PrivateAdmin>
             {/* 商品详情 */}
             <Route path="/product/:productId" component={Product}></Route>
+            {/* 购物车详情 */}
+            <Route path="/cart" component={Cart}></Route>
             {/* <Route path="/user/dashboard" component={UserDashBoard}></Route> */}
             {/* <Route path="/admin/dashboard" component={AdminDashBoard}></Route> */}
         </Switch>
