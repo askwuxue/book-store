@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card, Typography, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { API } from '../../../src/config';
-import addCart from '../../utils/addCart';
+import { addCart } from '../../utils/cart';
 import { push } from 'connected-react-router';
 import { useDispatch } from 'react-redux';
 const { Title, Paragraph } = Typography;
