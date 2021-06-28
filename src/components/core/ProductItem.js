@@ -2,11 +2,22 @@ import React from 'react';
 import { Row, Col, Card, Typography, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { API } from '../../../src/config';
+import addCart from '../../utils/addCart';
+import { push } from 'connected-react-router';
+import { useDispatch } from 'react-redux';
 const { Title, Paragraph } = Typography;
 
 export default function ProductItem({ product, showView = true, showCar = true }) {
     let { category: { name: categoryName }, name, description, price, quantity, createdAt, _id } = product;
     const actionsArray = [];
+    const dispatch = useDispatch();
+    // 添加到购物车
+    const addToProduct = () => {
+        addCart(product, () => {
+            // 调用回调函数，重定向
+            dispatch(push('/cart'))
+        });
+    }
     // Card 的actions接受一个数组，展示底部的显示组件
     // 查看详情
     if (showView) {
@@ -14,7 +25,7 @@ export default function ProductItem({ product, showView = true, showCar = true }
     }
     // 加入购物车
     if (showCar) {
-        actionsArray.push(<Button type="link">加入购物车</Button>)
+        actionsArray.push(<Button type="link" onClick={addToProduct}>加入购物车</Button>)
     }
     return (
         <>
