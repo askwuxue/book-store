@@ -21,7 +21,7 @@ export default function AdminDashBoard() {
                 </Menu.Item>
                 <Menu.Item>
                     <OrderedListOutlined />
-                    <Link>订单列表</Link>
+                    <Link to="/admin/orders">订单列表</Link>
                 </Menu.Item>
             </Menu>
         )
@@ -29,10 +29,6 @@ export default function AdminDashBoard() {
 
     const handleDescription = () => {
         let { user: { name, email } } = isLogin();
-        // let { user } = isLogin();
-        // console.log('user: ', user);
-        // console.log('name: ', name);
-
 
         return (
             <Descriptions title="管理员信息" bordered>
