@@ -3,6 +3,9 @@ import Layout from './Layout'
 import { Row, Col, Typography, Form, Button, Input } from 'antd'
 import { getCart } from '../../utils/cart'
 import CartItem from './CartItem'
+import axios from 'axios'
+import { API } from '../../config'
+import isLogin from '../../utils/auth'
 
 const { Title } = Typography
 
@@ -47,6 +50,24 @@ export default function Cart() {
             </table>
         )
     }
+
+    // 支付
+    const handlePay = () => {
+        axios.post(`${API}/alipay`, {
+            "totalAmount": totalPrice,
+            "subject": "订单标题",
+            "body": "订单描述",
+            "products": cart.map(item => ({
+                product: item._id,
+                count: item.count
+            })),
+            "address": address,
+            "userId": isLogin().user._id
+        }).then(response => {
+            window.location.href = response.data.result
+        })
+    }
+
     return (
         <Layout title="购物车" subTitle="快付款把我带走吧">
             <Row gutter={16}>
@@ -64,7 +85,7 @@ export default function Cart() {
                         />
                     </Form.Item>
                     <Title level={5}>Price: {totalPrice}</Title>
-                    <Button type="primary">提交订单</Button>
+                    <Button type="primary" onClick={handlePay}>提交订单</Button>
                 </Col>
             </Row>
         </Layout>
