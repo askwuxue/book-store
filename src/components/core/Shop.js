@@ -31,18 +31,18 @@ export default function Shop() {
     return (
         <Layout title="书城列表" subTitle="挑选一本好书">
             <Row>
-                <Col span={4}>
-                    <Space direction="vertical" size="Middle">
+                {<Col span={4}>
+                    {/* TODO 由于Space组件的size属性错误，导致NaN is an invalid value for the height css style property 根据栈追踪，大致判断发生错误的位置 */}
+                    <Space direction="vertical" size="middle">
                         {/* TODO 通过传递给子组件方法，获取子组件传递的数据 */}
                         <FilterByCategory handleFilters={(value) => setFilter({ ...filters, category: value })}>
                         </FilterByCategory>
                         <FilterByPrice handleFilters={(value) => setFilter({ ...filters, price: value })}>
                         </FilterByPrice>
                     </Space>
-                </Col>
-                <Col span={20}>
-                    {/* <Space size="large" direction="vertical"> */}
-                    <Row gutter={[16, 16]}>
+                </Col>}
+                < Col span={20} >
+                    <Row gutter={[16, 16]} >
                         {
                             data.map(item =>
                                 <Col span="6" key={item._id}>
@@ -50,15 +50,15 @@ export default function Shop() {
                                 </Col>
                             )
                         }
-                    </Row>
+                    </Row >
                     <Row>
                         {
                             size >= 4 ? <Button onClick={loadMore}>加载更多</Button> : <Empty></Empty>
                         }
                     </Row>
                     {/* </Space> */}
-                </Col>
-            </Row>
-        </Layout>
+                </Col >
+            </Row >
+        </Layout >
     )
 }
