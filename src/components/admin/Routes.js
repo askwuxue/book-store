@@ -12,6 +12,7 @@ import CreateCategory from './CreateCategory';
 import AddProduct from './AddProduct';
 import Product from '../core/Product';
 import Cart from '../core/Cart';
+import Orders from '../core/Orders';
 
 export default function Routes() {
     return (
@@ -30,7 +31,10 @@ export default function Routes() {
             {/* 商品详情 */}
             <Route path="/product/:productId" component={Product}></Route>
             {/* 购物车详情 */}
-            <Route path="/cart" component={Cart}></Route>
+            <PrivateAdmin path="/cart" component={Cart}></PrivateAdmin>
+            {/* 订单列表 */}
+            <PrivateAdmin path="/admin/orders" component={Orders}></PrivateAdmin>
+            {/* <Route path="/cart" component={Cart}></Route> */}
             {/* <Route path="/user/dashboard" component={UserDashBoard}></Route> */}
             {/* <Route path="/admin/dashboard" component={AdminDashBoard}></Route> */}
         </Switch>
